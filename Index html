@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería + WhatsApp</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        text-align: center;
+    }
+    .carousel {
+        max-width: 500px;
+        margin: 20px auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .slides img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    /* Botón flotante WhatsApp */
+    .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25D366;
+        border-radius: 50%;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        z-index: 100;
+    }
+    .whatsapp-float img {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Bienvenido</h1>
+<p>Explora nuestras imágenes y contáctanos por WhatsApp</p>
+
+<div class="carousel">
+    <div class="slides" id="slides">
+        <img src="https://i.postimg.cc/XXpk9frX/IMG-20250423-161613.jpg" alt="Imagen 1">
+        <img src="https://i.postimg.cc/mhJNjP9j/IMG-20250521-161547.jpg" alt="Imagen 2">
+        <img src="https://i.postimg.cc/9RNPvMnW/IMG-20250719-172602.jpg" alt="Imagen 3">
+        <img src="https://i.postimg.cc/rR0GckB5/SAVE-20250718-102913.jpg" alt="Imagen 4">
+    </div>
+</div>
+
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.me/5215615864343" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<script>
+    let index = 0;
+    const slides = document.getElementById("slides");
+    const totalSlides = slides.children.length;
+
+    function showNextSlide() {
+        index = (index + 1) % totalSlides;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+    setInterval(showNextSlide, 3000); // Cambia cada 3 segundos
+</script>
+
+</body>
+</html>
